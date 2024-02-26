@@ -5,7 +5,7 @@ export type QuestionType = {
   label: string;
   dataKey: string;
   isOptional?: true;
-  options?: { label: string; value: string | boolean }[];
+  options?: { label: string; value: string }[];
   validation: Yup.StringSchema<string>;
 };
 export const questionConfig: QuestionType[] = [
@@ -54,15 +54,39 @@ export const questionConfig: QuestionType[] = [
     validation: Yup.string().required(),
   },
   {
-    type: "INPUT",
+    type: "SELECT",
     label: "What are your expectations from this project?",
     dataKey: "expectations",
+    options: [
+      {
+        label: "I want to learn new technologies",
+        value: true,
+      },
+      {
+        label: "I want to meet new people",
+        value: false,
+      },
+      {
+        label: "Other",
+        value: false,
+      },
+    ],
     validation: Yup.string().min(3).required(),
   },
   {
-    type: "INPUT",
+    type: "SELECT",
     label: "Where are you from?",
     dataKey: "location",
+    options: [
+      {
+        label: "India",
+        value: true,
+      },
+      {
+        label: "Abroad",
+        value: false,
+      },
+    ],
     validation: Yup.string().min(3).required(),
   },
   {

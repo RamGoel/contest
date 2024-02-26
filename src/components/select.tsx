@@ -7,7 +7,7 @@ export type FormSelectProps = {
     extraStyle?: string;
     error: string;
     touched: boolean;
-    options?: { label: string; value: string | boolean }[];
+    options?: { label: string; value: string, disabled?: boolean }[];
     handleTouch: (state: boolean) => void;
 }
 const FormSelect = ({
@@ -27,8 +27,8 @@ const FormSelect = ({
                 handleChange(ev.target.value)
             }}>
                 {
-                    options.map(item => {
-                        return <option value={item.value}>{item.label}</option>
+                    options?.map((item) => {
+                        return <option disabled={item.disabled} value={item.value}>{item.label}</option>
                     })
                 }
             </select>
