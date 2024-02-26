@@ -8,7 +8,7 @@ import InfoPopup from "../../components/info-popup"
 import { ArrowRight } from "lucide-react"
 import SubmitPopup from "../../components/submit-popup"
 import { useNavigate } from "react-router-dom"
-const FormPage = () => {
+const FormPage = ({ setData }: { setData: (data: any) => void }) => {
     const navigate = useNavigate();
     const [seconds, setSeconds] = useState<number>(300); // 5 minutes in seconds
     const [isActive, setIsActive] = useState<boolean>(false);
@@ -33,7 +33,7 @@ const FormPage = () => {
     };
     return (
         <div className="h-screen w-screen flex items-center justify-center">
-            {isActive ? <InfoPopup closePopup={() => {
+            {!isActive ? <InfoPopup closePopup={() => {
                 setIsActive(true)
             }} /> : null}
             {submitOpen ? <SubmitPopup value={submitOpen} closePopup={(result: boolean) => {
@@ -42,10 +42,11 @@ const FormPage = () => {
                     navigate('/success')
                 }
             }} /> : null}
-            <Formik onSubmit={() => {
+            <Formik onSubmit={(data: any) => {
                 if (seconds !== 0) {
                     setSubmitOpen(`${formatTime(300 - seconds)}`)
                 }
+                setData(data)
             }} initialValues={initialValues}
                 validationSchema={validationSchema}
             >

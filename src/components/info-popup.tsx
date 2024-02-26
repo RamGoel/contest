@@ -5,7 +5,7 @@ const InfoPopup = ({ closePopup }: { closePopup: () => void }) => {
         <div className='z-[100] h-screen w-screen flex items-center justify-center fixed top-0 left-0 bg-black bg-opacity-60'>
             <div className='rounded-xl border-4 border-violet-200 shadow-2xl p-6 w-11/12 md:w-1/3 bg-white'>
                 <h3 className='text-2xl font-semibold'>Wait! do you know?</h3>
-                <p className='mt-5 text-md font-semibold'>This is a timed form of 5:00 minutes. The timer will start as soon as you start filling the form.</p>
+                <p className='mt-5 text-md font-semibold'>This is a timed form of 5:00 minutes. The timer will start as soon as you press the button.</p>
 
                 <p className='mt-5 text-md font-semibold'>Once the timer ends, the form will be auto submitted. All the best!</p>
 

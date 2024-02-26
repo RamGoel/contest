@@ -60,15 +60,15 @@ export const questionConfig: QuestionType[] = [
     options: [
       {
         label: "I want to learn new technologies",
-        value: true,
+        value: "I want to learn new technologies",
       },
       {
         label: "I want to meet new people",
-        value: false,
+        value: "I want to meet new people",
       },
       {
         label: "Other",
-        value: false,
+        value: "Other",
       },
     ],
     validation: Yup.string().min(3).required(),
@@ -80,11 +80,11 @@ export const questionConfig: QuestionType[] = [
     options: [
       {
         label: "India",
-        value: true,
+        value: "India",
       },
       {
         label: "Abroad",
-        value: false,
+        value: "Abroad",
       },
     ],
     validation: Yup.string().min(3).required(),
@@ -96,11 +96,11 @@ export const questionConfig: QuestionType[] = [
     options: [
       {
         label: "Yes",
-        value: true,
+        value: "Yes",
       },
       {
         label: "No",
-        value: false,
+        value: "No",
       },
     ],
     validation: Yup.string().required(),
