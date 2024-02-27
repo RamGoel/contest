@@ -10,7 +10,7 @@ const SuccessPage = ({ data }: { data: any }) => {
     }
     return (
         <div className="h-screen w-screen bg-violet-800 flex items-center justify-center">
-            <div className="text-center">
+            <div className="text-center w-10/12 mx-auto md:w-1/3">
                 <DonutIcon size={60} color="white" className="mx-auto my-3" />
                 <h3 className="text-3xl font-bold text-white">Wohoo! survey has been submitted.</h3>
                 <p className="text-lg mt-2 tracking-wider text-white font-semibold">Here are the answers that you have submitted!</p>
@@ -20,7 +20,7 @@ const SuccessPage = ({ data }: { data: any }) => {
                         questionConfig.map((item, index) => {
                             return <div className="text-left my-6">
                                 <h4 className="text-xl text-black font-semibold mb-1">{index + 1}. {item.label}</h4>
-                                <p className="text-xl text-violet-600 font-semibold ml-5 flex items-center justify-start" ><ArrowRight size={18} className="mr-2" /> {data?.[item?.dataKey]}</p>
+                                <p className="text-lg text-violet-600 font-semibold ml-5 flex items-center justify-start" ><ArrowRight size={18} className="mr-2" /> {data?.[item?.dataKey] || 'Not answered'}</p>
                             </div>
                         })
                     }

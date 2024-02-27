@@ -31,6 +31,12 @@ const FormPage = ({ setData }: { setData: (data: any) => void }) => {
         const seconds = time % 60;
         return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     };
+
+    const autoSubmitForm = (_data: any) => {
+        setData(_data);
+        navigate('/success')
+        return <></>
+    }
     return (
         <div className="h-screen w-screen flex items-center justify-center">
             {!isActive ? <InfoPopup closePopup={() => {
@@ -44,7 +50,7 @@ const FormPage = ({ setData }: { setData: (data: any) => void }) => {
             }} /> : null}
             <Formik onSubmit={(data: any) => {
                 if (seconds !== 0) {
-                    setSubmitOpen(`${formatTime(300 - seconds)}`)
+                    setSubmitOpen(`${formatTime(seconds)}`)
                 }
                 setData(data)
             }} initialValues={initialValues}
@@ -80,6 +86,7 @@ const FormPage = ({ setData }: { setData: (data: any) => void }) => {
                                 })
                             }
                         </div>
+                        {seconds === 0 ? autoSubmitForm(values) : <></>}
                         <div className="flex items-center justify-end">
                             <button onClick={() => handleSubmit()} type="submit" className="bg-black tracking-widest font-semibold flex items-center justify-between min-w-[180px] hover:scale-90 transition-all px-4 py-3 text-white rounded-lg">
                                 SUBMIT <ArrowRight className="text-xs" />
