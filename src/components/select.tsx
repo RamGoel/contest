@@ -21,11 +21,12 @@ const FormSelect = ({
     handleTouch
 }: FormSelectProps) => {
     return (
-        <div className="flex flex-col p-2 h-[120px]">
+        <div className="flex flex-col p-2 h-[100px]">
             {label && <label className="font-semibold">{label}</label>}
-            <select onFocus={() => handleTouch(true)} onBlur={() => handleTouch(false)} className="py-2 rounded-lg border-2 border-gray-300 my-1 focus-within:outline-none px-4 " value={value} required={required} onChange={(ev) => {
+            <select onFocus={() => handleTouch(true)} onBlur={() => handleTouch(false)} className="py-2 rounded-lg border-2 border-gray-300 my-1 focus-within:outline-none px-2" value={value} required={required} onChange={(ev) => {
                 handleChange(ev.target.value)
             }}>
+                <option value="" disabled selected>Select your option</option>
                 {
                     options?.map((item) => {
                         return <option disabled={item.disabled} value={item.value}>{item.label}</option>

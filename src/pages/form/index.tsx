@@ -63,8 +63,8 @@ const FormPage = ({ setData }: { setData: (data: any) => void }) => {
                             <h3 className="text-4xl text-end font-bold">{formatTime(seconds)}</h3>
                         </div>
                         <div className="my-4">
-                            <h3 className="text-3xl font-semibold">Oyya! Look at this</h3>
-                            <p className="tracking-5 leading-5 text-md font-semibold">Here's a short survey to help you better!</p>
+                            <h3 className="text-2xl font-semibold">Oyya! Look at this</h3>
+                            <p className="tracking-5 leading-5 text-sm font-semibold">Here's a short survey to help you better!</p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                             {
